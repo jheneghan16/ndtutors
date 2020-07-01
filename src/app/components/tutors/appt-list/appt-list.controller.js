@@ -1,4 +1,4 @@
-angular.module('components.tutors').controller('apptListElemController', ['importData', function(importData) {
+angular.module('components.tutors').controller('apptListController', ['importData', function(importData) {
    // So we can reference the same this at lower levels.     
     var ctrl = this;
 
@@ -28,11 +28,11 @@ function importData ($http){
         
 }
 //add service to app
-angular.module('app').service('importData', importData);
+angular.module('components.tutors').service('importData', importData);
 //Inject $http into importData service
 importData.$inject = ['$http'];
 
 // apptList element controller
-angular.module('components.tutors').controller('apptListElemController', ['importData', function(importData) {
+angular.module('components.tutors').controller('apptListController', ['importData', function(importData) {
 
 }]);

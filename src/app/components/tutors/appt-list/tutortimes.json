@@ -1,0 +1,47 @@
+{
+    "classAppts": [
+        {
+            "id": 1,
+            "tutorName": "Decca",
+            "tutorEmail": "dwaltho0@imdb.com",
+            "apptDate": "4/1/2020",
+            "apptTime": "2:00pm",
+            "isAvail": true,
+            "location": "Duncan Student Center"
+        }, {
+            "id": 2,
+            "tutorName": "Justin",
+            "tutorEmail": "dwaltho1@imdb.com",
+            "apptDate": "4/1/2020",
+            "apptTime": "2:00pm",
+            "isAvail": true,
+            "location": "Hesburgh Library"
+        }, {
+            "id": 3,
+            "tutorName": "Decca",
+            "tutorEmail": "dwaltho0@imdb.com",
+            "apptDate": "4/2/2020",
+            "apptTime": "3:00pm",
+            "isAvail": true,
+            "location": "DeBartolo Hall"
+        }, {
+            "id": 4,
+            "tutorName": "Decca",
+            "tutorEmail": "dwaltho0@imdb.com",
+            "apptDate": "4/2/2020",
+            "apptTime": "3:00pm",
+            "isAvail": false,
+            "location": "Engineering Library"
+        }, {
+            "id": 5,
+            "tutorName": "Decca",
+            "tutorEmail": "dwaltho0@imdb.com",
+            "apptDate": "4/2/2020",
+            "apptTime": "3:00pm",
+            "isAvail": true,
+            "location": "Duncan Student Center"
+        }
+    ]
+}
+
+
