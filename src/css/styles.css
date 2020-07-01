@@ -1,0 +1,5 @@
+/* For clickable entries, change background and cursor on hover */
+.apptentry h2:hover {
+	background: rgba(172,172,172,1);
+    cursor: pointer;
+}
