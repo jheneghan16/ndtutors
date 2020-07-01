@@ -1,6 +1,6 @@
-const apptList = {
+var apptList = {
     templateUrl: './appt-list.html',
-    controller: 'apptListController'
+    controller: 'ApptListController'
 }
 
 angular

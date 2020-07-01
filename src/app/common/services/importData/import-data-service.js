@@ -1,13 +1,7 @@
-// apptList element controller
-angular.module('app').controller('apptListElemController', ['importData', function(importData) {
-
-}]);
-
-//Import json service using $http get request
 function importData ($http){
     
     //once get request is complete, then return the response.data
-    return $http.get('/tutortimes.json')
+    return $http.get('../appt-list/tutortimes.json')
         .then(function(response) {
             return response.data;
         });

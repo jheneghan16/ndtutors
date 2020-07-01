@@ -1,6 +1,6 @@
-const apptListElem = {
+var apptListElem = {
     templateUrl: './appt-list-elem.html',
-    controller: 'apptListElemController',
+    controller: 'ApptListElemController',
     bindings: {apptelem: '<'}
 }
 

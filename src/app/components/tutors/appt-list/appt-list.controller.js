@@ -1,4 +1,4 @@
-angular.module('components.tutors').controller('apptListController', ['importData', function(importData) {
+function ApptListController (importData) {
    // So we can reference the same this at lower levels.     
     var ctrl = this;
 
@@ -14,14 +14,20 @@ angular.module('components.tutors').controller('apptListController', ['importDat
         appt.showForm = false;
         appt.complete = false;
     }
-}]);
+};
 
 
-//Import json service using $http get request
+angular.module('components.tutors').controller('ApptListController', ApptListController);
+
+
+                                                                      
+                                                                      
+                                                                      
+/*//Import json service using $http get request
 function importData ($http){
     
     //once get request is complete, then return the response.data
-    return $http.get('/tutortimes.json')
+    return $http.get('./tutortimes.json')
         .then(function(response) {
             return response.data;
         });
@@ -31,8 +37,4 @@ function importData ($http){
 angular.module('components.tutors').service('importData', importData);
 //Inject $http into importData service
 importData.$inject = ['$http'];
-
-// apptList element controller
-angular.module('components.tutors').controller('apptListController', ['importData', function(importData) {
-
-}]);
+*/
