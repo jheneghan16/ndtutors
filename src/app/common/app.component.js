@@ -10,7 +10,7 @@ angular
     $stateProvider
         .state('app', {
         //redirectTo: 'benefits',
-        url: '/',
+        url: '/app',
         /*data: {
             requiredAuth: true
         },*/

@@ -1,4 +1,4 @@
 angular
     .module('components.tutors', [
-    'ui.router'
+        'ui.router'
 ]);

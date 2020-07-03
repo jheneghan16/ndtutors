@@ -1,7 +1,7 @@
 var apptList = {
     templateUrl: './appt-list.html',
     controller: 'ApptListController'
-}
+};
 
 angular
     .module('components.tutors')

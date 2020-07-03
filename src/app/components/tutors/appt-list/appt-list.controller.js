@@ -2,18 +2,18 @@ function ApptListController (importData) {
    // So we can reference the same this at lower levels.     
     var ctrl = this;
 
-    ctrl.dataObj = {}
+    ctrl.dataObj = {};
     //call service function to get json, put it in ctrl.dataObj
-    importData.then(function(successResponse) {
+    importData.getTutors.then(function(successResponse) {
         ctrl.dataObj = successResponse;
         return successResponse;
-    })
+    });
    
     //initialize showform and complete attributes to each appointment to false
-    for (appt in ctrl.dataObj.classAppts){
+    for (appt of ctrl.dataObj.classAppts){
         appt.showForm = false;
         appt.complete = false;
-    }
+    };
 };
 
 
