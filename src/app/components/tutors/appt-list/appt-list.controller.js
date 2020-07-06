@@ -4,13 +4,13 @@ function ApptListController (importData) {
 
     ctrl.dataObj = {};
     //call service function to get json, put it in ctrl.dataObj
-    importData.getTutors.then(function(successResponse) {
+    importData.getTutors().then(function(successResponse) {
         ctrl.dataObj = successResponse;
         return successResponse;
     });
    
     //initialize showform and complete attributes to each appointment to false
-    for (appt of ctrl.dataObj.classAppts){
+    for (appt in ctrl.dataObj.classAppts){
         appt.showForm = false;
         appt.complete = false;
     };

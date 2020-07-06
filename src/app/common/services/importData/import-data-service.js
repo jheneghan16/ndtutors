@@ -2,7 +2,7 @@ function importData ($http){
     
     //once get request is complete, then return the response.data
     this.getTutors = function()  {
-        return $http.get('../appt-list/tutortimes.json')
+        return $http.get('./data/tutortimes.json')
         .then(function(response) {
             return response.data;
         });

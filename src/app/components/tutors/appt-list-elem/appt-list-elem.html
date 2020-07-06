@@ -1,0 +1,48 @@
+<div class="apptentry">
+    <!-- Always show each appt element, click to show form -->
+    <h2 ng-click="$ctrl.apptelem.showForm = !$ctrl.apptelem.showForm">{{$ctrl.apptelem.apptDate}} {{$ctrl.apptelem.apptTime}} with {{$ctrl.apptelem.tutorName}} at {{$ctrl.apptelem.location}}</h2>
+
+    <!-- fieldset shown if showForm is true -->
+    <fieldset ng-if="$ctrl.apptelem.showForm && !$ctrl.apptelem.complete">
+
+        <legend><b>Contact Your Tutor</b></legend>
+        <!-- Form to contact tutor -->
+        <form>
+
+            <label>Name:<br />
+                <input type="text" name="studentName" placeholder="John Doe" required="required" /></label><br />
+
+            <br />
+
+            <label>ND Email:<br />
+                <input type="text" name="studentEmail" placeholder="jdoe@nd.edu" required="required" /></label><br />
+
+            <br />
+
+            <label>Phone Number:<br />
+                <input type="text" name="studentPhoneNumber" placeholder="(123) 456-7890" required="required" /></label><br />
+
+            <p>Could your tutor text you at this phone number? <br />
+                <input type="radio" name="textPhoneNum" value="Yes" /> Yes
+                <input type="radio" name="textPhoneNum" value="No" /> No
+            </p>
+
+            <p>How can your tutor help you? <br />
+                <textarea name="helpDescription" cols="55" rows="5" placeholder="I am struggling quite a bit with understanding the anatomy of an AngularJS application. "></textarea>
+            </p>
+
+            <p>Do you have a preferred learning style? <br />
+                <input type="radio" name="learningStyle" value="Auditory" /> Auditory
+                <input type="radio" name="learningStyle" value="Visual" /> Visual
+                <input type="radio" name="learningStyle" value="Kinesthetic" /> Kinesthetic
+                <input type="radio" name="learningStyle" value="NotPreference" /> No Preference
+
+            </p>
+            <!-- set complete boolean to true -->
+            <input ng-click="$ctrl.apptelem.complete = true" type="submit" name="SendButton" value="Send" />
+
+        </form>
+    </fieldset>
+    <!-- Shown instead of form if form has been submitted during this instance -->
+    <p ng-if="$ctrl.apptelem.showForm && $ctrl.apptelem.complete">Thank You. The tutor will reply to you soon.</p>
+</div>

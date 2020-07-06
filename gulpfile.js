@@ -180,6 +180,12 @@ gulp.task('copy-img', () => {
         .pipe(gulp.dest(dist + '/img'));
 });
 
+gulp.task('copy-json', () => {
+    return gulp
+        .src('src/data/**/*')
+        .pipe(gulp.dest(dist + '/data'));
+});
+
 // copy fonts
 gulp.task('copy-fonts', () => {
     return gulp
@@ -204,7 +210,7 @@ gulp.task('connect-app', () => {
 //     });
 // });
 
-gulp.task('default', gulp.series('clean', 'scripts', 'styles', 'copy-html', 'copy-img', 'copy-fonts', 'connect-app', (done) => {
+gulp.task('default', gulp.series('clean', 'scripts', 'styles', 'copy-html', 'copy-img', 'copy-fonts', 'copy-json', 'connect-app', (done) => {
     done();
 }));
 
