@@ -1,8 +1,12 @@
-function ApptListController (importData) {
+function ApptListController (importData, ApptModel) {
    // So we can reference the same this at lower levels.     
     var ctrl = this;
 
+
     ctrl.dataObj = {};
+
+    ctrl.testing = ApptModel.getById('aRJvgTT1UW');
+    console.log(ctrl.testing);
     //call service function to get json, put it in ctrl.dataObj
     importData.getTutors().then(function(successResponse) {
         ctrl.dataObj = successResponse;
