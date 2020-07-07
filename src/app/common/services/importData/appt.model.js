@@ -5,21 +5,22 @@ class ApptModel {
         this.collection = [];
         this.name = 'Appts';
         this.fields = [
-            'id',
-            'className',
             'tutorName',
             'tutorEmail',
-            'apptDate',
-            'apptTime',
+			'apptDate',
             'isAvail',
-            'location'
+            'location',
+			'courseName'
         ];
     }
 
     New(obj) {
+		console.log('new test');
         if (angular.isUndefined(obj)) {
             const parseObject = new this.Parse.Object(this.name)
+			console.log('pre define new');
             this.Parse.defineAttributes(parseObject, this.fields);
+			console.log('post define new');
             return parseObject;
         } else {
             this.Parse.defineAttributes(obj, this.fields);
@@ -27,20 +28,24 @@ class ApptModel {
         }
     }
     getById(id) {
+		console.log('id test');
         return new this.Parse.Query(this.New())
             .get(id)
             .then(result => {
                 console.log('result', result);
+				console.log('pre define id');
                 this.Parse.defineAttributes(result, this.fields);
                 this.data = result;
+				console.log('post define id');
+				
                 return Promise.resolve(result);
             })
-            .catch(error => Promise.reject(error));
+            .catch(error => { console.log('reject'); Promise.reject(error); });
     }
 
-    getAllAppts(className) {
+    getAllAppts(tutorName) {
         return new this.Parse.Query(this.New())
-            .equalTo('className', className)
+            .equalTo('tutorName', tutorName)
             .descending("createdAt")
             .find(results => {
                 results.forEach(result =>
@@ -55,5 +60,5 @@ class ApptModel {
 }
 
 angular
-    .module('common')
+    .module('components.tutors')
     .service('ApptModel', ApptModel);

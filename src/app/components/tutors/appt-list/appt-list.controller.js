@@ -5,7 +5,10 @@ function ApptListController (importData, ApptModel) {
 
     ctrl.dataObj = {};
 
+    //ctrl.testing = ApptModel.getById('aRJvgTT1UW');
+	//ApptModel.getAllAppts('CSE40694');
     ctrl.testing = ApptModel.getById('aRJvgTT1UW');
+	console.log(ApptModel.data);
     console.log(ctrl.testing);
     //call service function to get json, put it in ctrl.dataObj
     importData.getTutors().then(function(successResponse) {
