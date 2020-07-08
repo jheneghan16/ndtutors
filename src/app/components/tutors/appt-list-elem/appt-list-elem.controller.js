@@ -1,5 +1,6 @@
-function ApptListElemController (importData) {
-
+function ApptListElemController (ApptModel) {
+	const ctrl = this;
+	ctrl.updateAppt = ApptModel.updateAppt;
 }
 
 

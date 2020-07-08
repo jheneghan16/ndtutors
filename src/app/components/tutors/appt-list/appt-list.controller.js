@@ -6,7 +6,7 @@ function ApptListController (importData, ApptModel) {
     ctrl.dataObj = {};
 
     //ctrl.testing = ApptModel.getById('aRJvgTT1UW');
-	var hold = ApptModel.getAllAppts('CSE 1111');
+	var hold = ApptModel.getAllAppts('CSE 2222');
 	
 	hold.then(function(dataObj) {
 		for (const appt of dataObj){

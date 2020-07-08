@@ -7,7 +7,6 @@ class ApptModel {
         this.fields = [
             'tutorName',
             'tutorEmail',
-			'apptTime',
             'isAvail',
             'location',
 			'courseName',
@@ -58,13 +57,6 @@ class ApptModel {
             })
             .catch(error => Promise.reject(error));
     }
-	
-	updateAppt(obj){
-		console.log('start update');
-		obj.save().then((response) => {
-			console.log('updated', obj);
-		}).catch(error => { console.log('Error while updating appts'); Promise.reject(error); });
-	}
 }
 
 angular

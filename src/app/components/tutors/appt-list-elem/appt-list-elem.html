@@ -3,11 +3,11 @@
     <h2 ng-click="$ctrl.apptelem.showForm = !$ctrl.apptelem.showForm">{{$ctrl.apptelem.apptDate}} {{$ctrl.apptelem.apptTime}} with {{$ctrl.apptelem.tutorName}} at {{$ctrl.apptelem.location}}</h2>
 
     <!-- fieldset shown if showForm is true -->
-    <fieldset ng-if="$ctrl.apptelem.showForm && !$ctrl.apptelem.finished">
+    <fieldset ng-if="$ctrl.apptelem.showForm && !$ctrl.apptelem.finished && $ctrl.apptelem.isAvail">
 
         <legend><b>Contact Your Tutor</b></legend>
         <!-- Form to contact tutor -->
-        <form>
+        <form ng-submit="$ctrl.apptelem.finished = true; $ctrl.apptelem.isAvail = false; $ctrl.updateAppt($ctrl.apptelem);">
 
             <label>Name:<br />
                 <input type="text" name="studentName" placeholder="John Doe" required="required" /></label><br />
@@ -39,10 +39,13 @@
 
             </p>
             <!-- set complete boolean to true -->
-            <input ng-click="$ctrl.apptelem.finished = true" type="submit" name="SendButton" value="Send" />
+            <input type="submit" name="SendButton" value="Send" />
 
         </form>
     </fieldset>
+	<p ng-if="$ctrl.apptelem.showForm && !$ctrl.apptelem.finished && !$ctrl.apptelem.isAvail">
+	Unavailable
+	</p>
     <!-- Shown instead of form if form has been submitted during this instance -->
     <p ng-if="$ctrl.apptelem.showForm && $ctrl.apptelem.finished">Thank You. The tutor will reply to you soon.</p>
 </div>
