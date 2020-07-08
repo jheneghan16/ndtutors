@@ -43,15 +43,16 @@ class ApptModel {
             .catch(error => { console.log('reject'); Promise.reject(error); });
     }
 
-    getAllAppts(tutorName) {
+    getAllAppts(courseName) {
         return new this.Parse.Query(this.New())
-            .equalTo('tutorName', tutorName)
+            .equalTo('courseName', courseName)
             .descending("createdAt")
             .find(results => {
                 results.forEach(result =>
                     this.Parse.defineAttributes(result, this.fields)
                 );
                 this.data = results;
+				//console.log(this.data);
                 return Promise.resolve(results);
             })
             .catch(error => Promise.reject(error));
