@@ -12,7 +12,7 @@ Features:
   - Implemented build system using gulp.js.
   - Added ApptModel to make http requests to the backend database.
   - Added navigation bar and styling.
-  - Added capability for appointments to be reserved.
+  - Added capability for appointments to be reserved by submitting form which updates the backend server.
 
 Bug Fixes: 
 
