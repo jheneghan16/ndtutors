@@ -45,7 +45,7 @@
     </fieldset>
 	    <!-- Shown instead of form if form has been submitted previously -->
 	<p ng-if="$ctrl.apptelem.showForm && !$ctrl.apptelem.finished && !$ctrl.apptelem.isAvail">
-	Unavailable
+	Reserved by another student. Check back later for more appointments.
 	</p>
     <!-- Shown instead of form if form has been submitted during this instance -->
     <p ng-if="$ctrl.apptelem.showForm && $ctrl.apptelem.finished">Thank You. The tutor will reply to you soon.</p>
