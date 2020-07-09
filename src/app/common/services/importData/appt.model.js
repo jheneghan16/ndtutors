@@ -53,7 +53,6 @@ class ApptModel {
                     this.Parse.defineAttributes(result, this.fields)
                 );
                 this.data = results;
-				//console.log(this.data);
                 return Promise.resolve(results);
             })
             .catch(error => Promise.reject(error));

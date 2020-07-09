@@ -16,22 +16,10 @@ angular
         url: '/apptList',
         component: 'apptList',
 		resolve: {
+			//get classes before showing page
 			dataObj: function(ApptModel){
 				return ApptModel.getAllAppts('CSE 2222');
 			}
 		}
-		})
-				
-			/*var hold = ApptModel.getAllAppts('CSE 2222');
-	
-			hold.then(function(dataObj) {
-				for (const appt of dataObj){
-					console.log(appt);
-					appt.showForm = false;
-					appt.finished = false;
-				};
-				console.log(dataObj);
-				ctrl.dataObj = dataObj;
-			});
-		});*/
-});
+		});
+	});

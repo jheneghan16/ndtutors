@@ -7,12 +7,4 @@ var apptListElem = {
 
 angular
     .module('components.tutors')
-    .component('apptListElem', apptListElem);
-    /*.config(function ($stateProvider) {
-    $stateProvider
-        .state('apptListElem', {
-        parent: 'app',
-        url: '/apptListElem',
-        component: 'apptListElem'
-    });
-});*/ 
+    .component('apptListElem', apptListElem); 

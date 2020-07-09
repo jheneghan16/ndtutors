@@ -9,11 +9,7 @@ angular
     .config(function ($stateProvider) {
     $stateProvider
         .state('app', {
-        //redirectTo: 'benefits',
         url: '/app',
-        /*data: {
-            requiredAuth: true
-        },*/
         component: 'app'
     })
 });
