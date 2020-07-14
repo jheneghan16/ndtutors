@@ -1,5 +1,5 @@
 function AuthService(Parse) {
-  var auth = Parse();
+  var auth = Parse.AuthProvider;
   var authData = null;
   function storeAuthData(response) {
     authData = response;
