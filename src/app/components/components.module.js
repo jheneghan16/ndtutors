@@ -1,4 +1,5 @@
 angular
     .module('components', [
-        'components.tutors'
+        'components.tutors',
+        'components.auth'
     ]);
