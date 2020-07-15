@@ -1,5 +1,5 @@
 function AuthService(Parse) {
-  var auth = Parse.AuthProvider;
+  var auth = new Parse.User();
   console.log(Parse);
   console.log(auth);
   //var auth = "exampletext";
@@ -16,13 +16,22 @@ function AuthService(Parse) {
     authData = null;
   }
   this.login = function (user) {
+      auth.set("username", user.email);
+      auth.set("password", user.password);
+      auth.set("email", user.email);
+      console.log(auth);
     return auth
-      .logIn(user.email, user.password)
+      .logIn()
       .then(storeAuthData);
   };
   this.register = function (user) {
+      console.log(user);
+      auth.set("username", user.email);
+      auth.set("password", user.password);
+      auth.set("email", user.email);
+      console.log(auth);
     return auth
-      .signUp(user.email, user.password)
+      .signUp()
       .then(storeAuthData);
   };
   this.logout = function () {

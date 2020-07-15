@@ -10,12 +10,16 @@ angular
         return !!(state.data && state.data.requiredAuth);
       }
     }, function() {
-      return AuthService
-        .requireAuthentication()
-        .catch(function () {
-          return $state.target('auth.login');
-        });
+        if (!AuthService.requireAuthentication()){
+            return $state.target('auth.login');
+        }
+      //return AuthService
+      //  .requireAuthentication()
+        //.catch(function () {
+          //return $state.target('auth.logIn');
+        //});
     });
+    //});
     $transitions.onStart({
       to: 'auth.*'
     }, function () {
