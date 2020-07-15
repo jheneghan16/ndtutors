@@ -3,6 +3,7 @@ var forTutors = {
     controller: 'forTutorsController',
 	bindings: {
 		dataObj: '<'
+       // AuthService: '<'
 	}
 };
 
@@ -15,7 +16,9 @@ angular
         parent: 'app',
         url: '/forTutors',
         component: 'forTutors',
+        data: {requiredAuth: true},
 		resolve: {
+            //authenticate: AuthService.requireAuthentication,
 			//get classes before showing page
 			dataObj: function(ApptModel){
 				return ApptModel.getAllAppts('CSE 2222');
