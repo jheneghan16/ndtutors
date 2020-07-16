@@ -11,7 +11,7 @@ function LoginController(AuthService, $state) {
     return AuthService
       .login(event.user)
       .then(function () {
-        $state.go('app');
+        $state.go('forTutors');
       }, function (reason) {
         ctrl.error = reason.message;
       });

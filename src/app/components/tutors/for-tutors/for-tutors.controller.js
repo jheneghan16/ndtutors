@@ -1,7 +1,7 @@
-function forTutorsController (ApptModel) {
+function forTutorsController (ApptModel, AuthService) {
    // So we can reference the same this at lower levels.     
     var ctrl = this;
-
+    ctrl.logout = AuthService.logout;
 
     ctrl.dataObj = {};
 	var hold = ApptModel.getAllAppts('CSE 2222');

@@ -19,7 +19,7 @@ function AuthService(Parse) {
       auth.set("username", user.email);
       auth.set("password", user.password);
       auth.set("email", user.email);
-      console.log(auth);
+      console.log(user);
     return auth
       .logIn()
       .then(storeAuthData);
