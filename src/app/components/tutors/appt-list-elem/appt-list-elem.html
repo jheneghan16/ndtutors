@@ -7,7 +7,7 @@
 
         <legend><b>Contact Your Tutor</b></legend>
         <!-- Form to contact tutor -->
-        <form ng-submit="$ctrl.apptelem.finished = true; $ctrl.apptelem.isAvail = false; $ctrl.updateAppt($ctrl.apptelem);">
+        <form ng-submit="$ctrl.apptelem.finished = true; $ctrl.apptelem.isAvail = false; $ctrl.updateAppt($ctrl.apptelem); $ctrl.params.toEmail = $ctrl.apptelem.tutorEmail; $ctrl.sendTutorEmail($ctrl.params)">
 
             <label>Name:<br />
                 <input type="text" name="studentName" placeholder="John Doe" required="required" /></label><br />
