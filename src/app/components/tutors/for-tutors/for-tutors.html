@@ -1,3 +1,40 @@
 <div>
     <h1> For Tutors Page</h1>
+    <fieldset ng-if="$ctrl.showForm">
+
+        <legend><b>Create New Appointment</b></legend>
+        <!-- Form to contact tutor -->
+        <form ng-submit="$ctrl.newappt.isAvail=true; $ctrl.showForm=false; $ctrl.update($ctrl.newappt)">
+
+            <label>Tutor Name:<br />
+                <input type="text" name="studentName" placeholder="John Doe" required="required" ng-model="$ctrl.newappt.tutorName" /></label><br />
+
+            <br />
+
+            <label>Tutor Email:<br />
+                <input type="text" name="studentEmail" placeholder="jdoe@nd.edu" required="required" ng-model="$ctrl.newappt.tutorEmail" /></label><br />
+
+            <br />
+
+            <label>Appt Date:<br />
+                <input type="text" name="studentPhoneNumber" placeholder="June 30th" required="required" ng-model="$ctrl.newappt.apptDate" /></label><br />
+
+            <label>Appt Time:<br />
+                <input type="text" name="apptTime" placeholder="3:00 PM" required="required" ng-model="$ctrl.newappt.apptTime" /></label><br />
+
+            <label>Appt Location:<br />
+                <input type="text" name="apptLocation" placeholder="Debart" required="required" ng-model="$ctrl.newappt.location" /></label><br />
+
+            <label>Course:<br />
+                <input type="text" name="courseName" placeholder="CSE 11111" required="required" ng-model="$ctrl.newappt.courseName" /></label><br />
+
+
+            <!-- set complete boolean to true -->
+            <input type="submit" name="SendButton" value="Send" />
+
+        </form>
+    </fieldset>
+
+    <p ng-if="!$ctrl.showForm">Thanks for volunteering</p>
+    <button ng-if="!$ctrl.showForm" ng-click="$ctrl.showForm=true">Make another appointment</button>
 </div>
