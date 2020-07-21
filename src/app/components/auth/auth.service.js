@@ -1,17 +1,14 @@
+// Refactored all Firebase logic to Parse. 
+// Modified from Todd Motto's Ultimate Angular Repository. 
 function AuthService(Parse) {
   var auth = new Parse.User();
   console.log(Parse);
   console.log(auth);
-  //var auth = "exampletext";
   var authData = null;
   function storeAuthData(response) {
     authData = response;
     return authData;
   }
-  //function onSignIn(user) {
-//    authData = user;
-  //  return auth.$requireSignIn();
-  //}
   function clearAuthData() {
     authData = null;
   }

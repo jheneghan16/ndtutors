@@ -1,3 +1,4 @@
+// Modified from Todd Motto's Ultimate Angular Repository.
 function RegisterController(AuthService, $state) {
   var ctrl = this;
   ctrl.$onInit = function () {
@@ -11,7 +12,7 @@ function RegisterController(AuthService, $state) {
     return AuthService
       .register(event.user)
       .then(function () {
-        $state.go('app');
+        $state.go('forTutors');
       }, function (reason) {
         ctrl.error = reason.message;
       });

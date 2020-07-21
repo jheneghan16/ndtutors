@@ -1,3 +1,4 @@
+// Modified from Todd Motto's Ultimate Angular Repository.
 function LoginController(AuthService, $state) {
   var ctrl = this;
   ctrl.$onInit = function () {

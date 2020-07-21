@@ -1,3 +1,4 @@
+// Modified from Todd Motto's Ultimate Angular Repository.
 function AuthFormController() {
   var ctrl = this;
   ctrl.$onChanges = function (changes) {

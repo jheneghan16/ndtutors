@@ -1,5 +1,22 @@
 # CHANGELOG.md
 
+## 0.3.0 
+
+Contributors:
+
+  - Stacy Manrique, Justin Doney, Jamie Heneghan
+
+Features:
+
+  - Added the forTutors component. 
+  - Added authentication (using Parse) to the forTutors component. 
+  - Added login and register capabilities. 
+  - Added proper authentication redirects. 
+
+Bug Fixes: 
+
+ - No known bugs in prior release.
+
 ## 0.2.0 
 
 Contributors:
@@ -17,4 +34,6 @@ Features:
 Bug Fixes: 
 
  - No known bugs in prior release.
+ 
+ 
 

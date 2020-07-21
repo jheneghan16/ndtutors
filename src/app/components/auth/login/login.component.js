@@ -1,3 +1,4 @@
+// Modified from Todd Motto's Ultimate Angular Repository.
 var login = {
   templateUrl: './login.html',
   controller: 'LoginController'

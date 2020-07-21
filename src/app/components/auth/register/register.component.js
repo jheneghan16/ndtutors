@@ -1,3 +1,4 @@
+// Modified from Todd Motto's Ultimate Angular Repository.
 var register = {
   templateUrl: './register.html',
   controller: 'RegisterController'
