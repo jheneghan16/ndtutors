@@ -7,20 +7,20 @@
 
         <legend><b>Contact Your Tutor</b></legend>
         <!-- Form to contact tutor -->
-        <form ng-submit="$ctrl.apptelem.finished = true; $ctrl.apptelem.isAvail = false; $ctrl.updateAppt($ctrl.apptelem);">
+        <form ng-submit="$ctrl.apptelem.finished = true; $ctrl.apptelem.isAvail = false; $ctrl.updateBody(); $ctrl.updateAppt($ctrl.apptelem); $ctrl.params.toEmail = $ctrl.apptelem.tutorEmail; $ctrl.sendTutorEmail($ctrl.params)">
 
             <label>Name:<br />
-                <input type="text" name="studentName" placeholder="John Doe" required="required" /></label><br />
+                <input type="text" name="studentName" placeholder="John Doe" required="required" ng-model="$ctrl.studentName" /></label><br />
 
             <br />
 
             <label>ND Email:<br />
-                <input type="text" name="studentEmail" placeholder="jdoe@nd.edu" required="required" /></label><br />
+                <input type="text" name="studentEmail" placeholder="jdoe@nd.edu" required="required" ng-model="$ctrl.studentEmail" /></label><br />
 
             <br />
 
             <label>Phone Number:<br />
-                <input type="text" name="studentPhoneNumber" placeholder="(123) 456-7890" required="required" /></label><br />
+                <input type="text" name="studentPhoneNumber" placeholder="(123) 456-7890" required="required" ng-model="$ctrl.studentPhone" /></label><br />
 
             <p>Could your tutor text you at this phone number? <br />
                 <input type="radio" name="textPhoneNum" value="Yes" /> Yes
@@ -28,7 +28,7 @@
             </p>
 
             <p>How can your tutor help you? <br />
-                <textarea name="helpDescription" cols="55" rows="5" placeholder="I am struggling quite a bit with understanding the anatomy of an AngularJS application. "></textarea>
+                <textarea name="helpDescription" cols="55" rows="5" placeholder="I am struggling quite a bit with understanding the anatomy of an AngularJS application. " ng-model="$ctrl.studentIssue"></textarea>
             </p>
 
             <p>Do you have a preferred learning style? <br />
