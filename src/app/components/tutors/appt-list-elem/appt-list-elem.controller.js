@@ -4,12 +4,20 @@ function ApptListElemController (ApptModel) {
 
 	ctrl.emailToSend = {}
 
+	ctrl.studentName = "";
+
 	//var receiverEmail = ctrl.apptelem.tutorEmail;
+
+	
+	ctrl.updateBody = function() {
+		ctrl.params.body = ctrl.studentName + " signed up for your appointment at " + ctrl.apptelem.apptTime + " " + ctrl.apptelem.apptDate + " at location: " + ctrl.apptelem.location + "\n" +
+		ctrl.studentName + " can be reached at " + ctrl.studentEmail + " or at " + ctrl.studentPhone + "\n" +
+		"Brief summary of what they need help with: \n\n" + ctrl.studentIssue;
+	}
 
 	ctrl.params = {
 		toEmail: "",
-		subject: "Someone signed up for your appointment",
-		body: " Someone signed up for your appointment "
+		subject: "Someone signed up for your appointment"
 	}
 
 	ctrl.sendTutorEmail = function(params) {
