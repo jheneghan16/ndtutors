@@ -22,9 +22,7 @@ function ApptListElemController (ApptModel) {
 
 	ctrl.sendTutorEmail = function(params) {
 		console.log(params);
-		Parse.Cloud.run("sendgridEmail", params).then( function() {
-		console.log(response);
-	});
+		Parse.Cloud.run("sendgridEmail", params);
 	}
 
 }
