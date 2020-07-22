@@ -1,5 +1,26 @@
 # CHANGELOG.md
 
+## 0.4.0 (Heneghan)
+
+Contributors:
+
+  - Jamie Heneghan
+
+Features:
+
+  - Added email notification when students sign up for an appointment
+  - Implemented Parse Cloud function to do this.
+  - Used Twilio's Sendgrid API to send emails.
+
+To run: 
+  - Run `gulp`
+  - Open server shown, and sign up for an appointment.
+  - An email will be sent to the tutor when this is completed.
+  - Files associated with thie feature are: appt-list-elem.controller.js, appt-list-elem.html, Parse Cloud function.
+
+Bug Fixes: 
+- No known bugs at this release
+
 ## 0.3.0 
 
 Contributors:
