@@ -2,6 +2,7 @@
     <h1> Web Design Tutor Appointments </h1>
     <!-- repeat over all appt-elements for this class -->
     <div ng-repeat="x in $ctrl.dataObj">
-        <appt-list-elem apptelem="x"></appt-list-elem>
+        <!-- pass in a condition to ng-if-->
+       <appt-list-elem apptelem="x"></appt-list-elem>
     </div>
 </div>

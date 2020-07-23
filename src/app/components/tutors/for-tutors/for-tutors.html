@@ -1,3 +1,88 @@
+<!doctype html>
 <div>
-    <h1> For Tutors Dashboard</h1>
+    <!--Interpolation allows you to use a variable from the controller.-->
+    <h1>Welcome {{ $ctrl.username  }}!</h1>
+    <h3><i>Choose one of the following options:</i></h3>
+
+    <ul class="navigation2">
+        <li><a ng-click="$ctrl.toggleApptsTab(); $ctrl.particularClass(); $ctrl.accountSettingsTab=false" href="#!/app/forTutors">Appointments</a></li>
+
+        <li><a ng-click="$ctrl.toggleAccountSettingsTab()" href="#!/app/forTutors">Account Settings</a></li>
+
+    </ul>
+
+    <!--Account Settings-->
+    <div ng-if=$ctrl.accountSettingsTab>
+        <h3><u><i>Change Username/Email</i></u></h3>
+        <h3><u><i>Change Password</i></u></h3>
+
+    </div>
+
+
+
+    <!--In "Appointments" tab...-->
+    <div class="subMenu" ng-if="$ctrl.apptsTab">
+        <h3 ng-click="$ctrl.particularClass(); $ctrl.toggleShowViewAllApptsSection();$ctrl.particularClass()"><i><u>View All Appointments</u></i></h3>
+
+        <!--<p ng-if="$ctrl.allAppointments && $ctrl.showViewAllApptsSection">{{$ctrl.allAppointments}}</p>-->
+        <ul>
+            <li ng-if="$ctrl.allAppointments && $ctrl.showViewAllApptsSection" ng-repeat="individualClassArray in $ctrl.allAppointments"> <b>Appointment Information:</b>
+
+                <ul ng-repeat="x in individualClassArray" ng-if="x.tutorEmail == $ctrl.username">{{x.courseName}} Tutoring Session on {{x.apptDate}} at {{x.apptTime}} in {{x.location}}</ul>
+
+                <br />
+
+            </li>
+        </ul>
+
+        <!--Create New Appointment Section-->
+        <h3 ng-click="$ctrl.toggleShowNewApptSection(); $ctrl.showNewApptForm = true; $ctrl.particularClass(); $ctrl.newAppointmentFunction(); "><i><u>Create New Appointment</u></i></h3>
+
+        <fieldset ng-if="$ctrl.apptsTab && $ctrl.showNewApptSection && $ctrl.showNewApptForm">
+
+            <legend><b>New Appointment Information</b></legend>
+            <!-- Form for tutors to create a new appointment -->
+            <form ng-submit="$ctrl.newAppointment.isAvail = true; $ctrl.particularClass();$ctrl.updateAppointment($ctrl.newAppointment);  $ctrl.showNewApptForm=false; $ctrl.particularClass()">
+
+                <!--In order to store input data for each of the Appt fields, we are going to use ng-model (as used in auth-form.html).-->
+                <label>Your Name:<br />
+                    <input type="text" name="tutorName" placeholder="John Doe" required="required" ng-model="$ctrl.newAppointment.tutorName" /></label><br />
+
+                <br />
+
+                <label>Your Email:<br />
+                    <input type="text" name="tutorEmail" placeholder="jdoe@nd.edu" required="required" ng-model="$ctrl.newAppointment.tutorEmail" /></label><br />
+
+                <br />
+
+                <label>What course is this tutoring appointment for? <br />
+                    <input type="text" name="appointmentCourseName" placeholder="CSE 1111" required="required" ng-model="$ctrl.newAppointment.courseName" /></label><br />
+
+                <br />
+
+                <label>Date for this new appointment:<br />
+                    <input type="text" name="appointmentDate" placeholder="Aug 1" required="required" ng-model="$ctrl.newAppointment.apptDate" /></label><br />
+
+                <br />
+
+                <label>Time for this new appointment:<br />
+                    <input type="text" name="appointmentTime" placeholder="9:00AM" required="required" ng-model="$ctrl.newAppointment.apptTime" /></label><br />
+
+                <br />
+
+                <label>Location for this new appointment:<br />
+                    <input type="text" name="appointmentLocation" placeholder="Hesburgh Library" required="required" ng-model="$ctrl.newAppointment.location" /></label><br />
+
+                <br />
+
+                <!-- set complete boolean to true -->
+                <input type="submit" name="SendButton" value="Send" />
+
+            </form>
+        </fieldset>
+
+        <p ng-if="$ctrl.showNewApptSection && !$ctrl.showNewApptForm">Your new appointment has been recorded!</p>
+    </div>
+
+
 </div>

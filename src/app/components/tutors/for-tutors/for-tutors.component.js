@@ -6,6 +6,7 @@ var forTutors = {
 	}
 };
 
+
 angular
     .module('components.tutors')
     .component('forTutors', forTutors)

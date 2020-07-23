@@ -7,6 +7,8 @@ function AuthService(Parse) {
   var authData = null;
   function storeAuthData(response) {
     authData = response;
+    console.log("in storeAuthData");
+    console.log(response);  
     return authData;
   }
   function clearAuthData() {
@@ -17,6 +19,7 @@ function AuthService(Parse) {
       auth.set("password", user.password);
       auth.set("email", user.email);
       console.log(user);
+      //sessionStorage.setItem('username', user.email);
     return auth
       .logIn()
       .then(storeAuthData);
