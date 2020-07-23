@@ -1,6 +1,7 @@
 <div class="apptentry">
     <!-- Always show each appt element, click to show form -->
-    <h2 ng-click="$ctrl.apptelem.showForm = !$ctrl.apptelem.showForm">{{$ctrl.apptelem.apptDate}} {{$ctrl.apptelem.apptTime}} with {{$ctrl.apptelem.tutorName}} at {{$ctrl.apptelem.location}}</h2>
+    <h2 ng-click="$ctrl.apptelem.showForm = !$ctrl.apptelem.showForm" ng-if="!$ctrl.apptelem.isAvail" ng-style="{color: 'red'}">{{$ctrl.apptelem.apptDate}} {{$ctrl.apptelem.apptTime}} with {{$ctrl.apptelem.tutorName}} at {{$ctrl.apptelem.location}}</h2>
+    <h2 ng-click="$ctrl.apptelem.showForm = !$ctrl.apptelem.showForm" ng-if="$ctrl.apptelem.isAvail" ng-style="{color: 'green'}">{{$ctrl.apptelem.apptDate}} {{$ctrl.apptelem.apptTime}} with {{$ctrl.apptelem.tutorName}} at {{$ctrl.apptelem.location}}</h2>
 
     <!-- fieldset shown if showForm is true -->
     <fieldset ng-if="$ctrl.apptelem.showForm && !$ctrl.apptelem.finished && $ctrl.apptelem.isAvail">
@@ -44,7 +45,7 @@
         </form>
     </fieldset>
 	    <!-- Shown instead of form if form has been submitted previously -->
-	<p ng-if="$ctrl.apptelem.showForm && !$ctrl.apptelem.finished && !$ctrl.apptelem.isAvail">
+	<p ng-if="$ctrl.apptelem.showForm && !$ctrl.apptelem.finished && !$ctrl.apptelem.isAvail" ng-style="{color: 'red'}">
 	Reserved by another student. Check back later for more appointments.
 	</p>
     <!-- Shown instead of form if form has been submitted during this instance -->

@@ -1,7 +1,14 @@
 <div>
-    <h1> Web Design Tutor Appointments </h1>
-    <!-- repeat over all appt-elements for this class -->
+	<ul class="navigation">
+		<li><a ng-click="$ctrl.courseName = 'CSE 1111';" ng-if="$ctrl.courseName == 'CSE 1111';" ng-style="{color: 'gold'}">CSE 1111</a></li>
+		<li><a ng-click="$ctrl.courseName = 'CSE 1111';" ng-if="$ctrl.courseName != 'CSE 1111';" ng-style="{color: 'white'}">CSE 1111</a></li>
+		<li><a ng-click="$ctrl.courseName = 'CSE 2222';" ng-if="$ctrl.courseName == 'CSE 2222';"ng-style="{color: 'gold'}">CSE 2222</a></li>
+		<li><a ng-click="$ctrl.courseName = 'CSE 2222';" ng-if="$ctrl.courseName != 'CSE 2222';"ng-style="{color: 'white'}">CSE 2222</a></li>
+		<li><a ng-click="$ctrl.courseName = 'CSE 3333';" ng-if="$ctrl.courseName == 'CSE 3333';" ng-style="{color: 'gold'}">CSE 3333</a></li>
+		<li><a ng-click="$ctrl.courseName = 'CSE 3333';" ng-if="$ctrl.courseName != 'CSE 3333';" ng-style="{color: 'white'}">CSE 3333</a></li>
+	</ul>
+    <h1> {{$ctrl.courseName}} Tutor Appointments </h1>
     <div ng-repeat="x in $ctrl.dataObj">
-        <appt-list-elem apptelem="x"></appt-list-elem>
+        <appt-list-elem apptelem="x" ng-if="x.courseName == $ctrl.courseName" ></appt-list-elem>
     </div>
 </div>

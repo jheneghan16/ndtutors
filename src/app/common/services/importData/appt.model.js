@@ -13,6 +13,7 @@ class ApptModel {
 			'courseName',
 			'apptDate'
         ];
+		this.courseName = "CSE 1111";
     }
 
     New(obj) {
@@ -48,6 +49,19 @@ class ApptModel {
         return new this.Parse.Query(this.New())
             .equalTo('courseName', courseName)
             .descending("createdAt")
+            .find(results => {
+                results.forEach(result =>
+                    this.Parse.defineAttributes(result, this.fields)
+                );
+                this.data = results;
+                return Promise.resolve(results);
+            })
+            .catch(error => Promise.reject(error));
+    }
+	
+	getAllCoursesAppts() {
+        return new this.Parse.Query(this.New())
+            .descending("courseName")
             .find(results => {
                 results.forEach(result =>
                     this.Parse.defineAttributes(result, this.fields)

@@ -4,15 +4,15 @@ function ApptListController (ApptModel) {
 
 
     ctrl.dataObj = {};
-	var hold = ApptModel.getAllAppts('CSE 2222');
-	
-	hold.then(function(dataObj) {
+	ctrl.courseName = 'CSE 1111';
+	ApptModel.getAllCoursesAppts().then(function(dataObj) {
 		for (const appt of dataObj){
 			appt.showForm = false;
 			appt.finished = false;
 		};
 		ctrl.dataObj = dataObj;
 	});
+	
 };
 
 

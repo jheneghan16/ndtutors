@@ -2,7 +2,8 @@ var apptList = {
     templateUrl: './appt-list.html',
     controller: 'ApptListController',
 	bindings: {
-		dataObj: '<'
+		dataObj: '<',
+		ApptModel: '<'
 	}
 };
 
@@ -18,7 +19,7 @@ angular
 		resolve: {
 			//get classes before showing page
 			dataObj: function(ApptModel){
-				return ApptModel.getAllAppts('CSE 2222');
+				return ApptModel.getAllAppts('CSE 1111');
 			}
 		}
 		});
