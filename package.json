@@ -29,7 +29,7 @@
     "angular-parse": "^0.2.2",
     "moment": "^2.18.1",
     "ngVue": "^1.6.0",
-    "parse": "^1.11.1",
+    "parse": "^2.15.0",
     "promise-limit": "^2.7.0",
     "vue": "^2.5.17"
   },
