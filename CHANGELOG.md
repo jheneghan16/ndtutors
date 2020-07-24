@@ -18,6 +18,10 @@ To run:
   - An email will be sent to the tutor when this is completed.
   - Files associated with thie feature are: appt-list-elem.controller.js, appt-list-elem.html, Parse Cloud function.
 
+Files:
+
+ - Files used for sendgrid api and Parse Cloud Backend are located in sendgridstuff/ these files were added to the cloud, and are not used locally, they are just here for reference.
+
 Bug Fixes: 
 - No known bugs at this release
 
