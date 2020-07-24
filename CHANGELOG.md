@@ -36,7 +36,7 @@ Expected Functionality:
 
 Files Associated:
 
-  - The main sfiles that were modified for this individual feature are for-tutors.html, for-tutors.controller.js, and styles.css. 
+  - The main files that were modified for this individual feature are for-tutors.html, for-tutors.controller.js, and styles.css. 
 
 Bug Fixes: 
 
