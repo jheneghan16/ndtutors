@@ -13,11 +13,11 @@ function forTutorsController(ApptModel, AuthService) {
     ctrl.accountSettingsTab = false;
     ctrl.showNewApptSection = false;
     ctrl.showViewAllApptsSection = false;
-
+    
     // Initially the New Appointment form is collapsed. 
     ctrl.showNewApptForm = false;
 
-    // Function for Appointments Tab
+    // Function for changing apptsTab boolean variable and opening/closing the Appointments tab view. 
     ctrl.toggleApptsTab = function () {
         if (ctrl.accountSettingsTab == true) {
             ctrl.accountSettingsTab == false;
@@ -25,7 +25,7 @@ function forTutorsController(ApptModel, AuthService) {
         ctrl.apptsTab = !ctrl.apptsTab;
     };
 
-    // Function for Account Setting Tab
+    // Function for changing accountSettingsTab boolean variable and opening/closing the Account Settings tab view.
     ctrl.toggleAccountSettingsTab = function () {
         if (ctrl.apptsTab == true) {
             ctrl.apptsTab = false;
@@ -33,7 +33,7 @@ function forTutorsController(ApptModel, AuthService) {
         ctrl.accountSettingsTab = !ctrl.accountSettingsTab;
     };
 
-    // Function for View All Appts Section
+    // Function for changing showViewAllApptsSection boolean variable and opening/closing the submenu's View All Appointments view.
     ctrl.toggleShowViewAllApptsSection = function () {
         if (ctrl.showNewApptSection == true) {
             ctrl.showNewApptSection = false;
@@ -41,7 +41,7 @@ function forTutorsController(ApptModel, AuthService) {
         ctrl.showViewAllApptsSection = !ctrl.showViewAllApptsSection;
     };
 
-    // Function for New Appt Section
+    // Function for changing showNewApptSection boolean variable and opening/closing the submenu's Create New Appointment view.
     ctrl.toggleShowNewApptSection = function () {
         if (ctrl.showViewAllApptsSection == true) {
             ctrl.showViewAllApptsSection = false;
@@ -52,14 +52,22 @@ function forTutorsController(ApptModel, AuthService) {
     // Getting each particular class and their appointments in an array. 
     ctrl.particularClass = function () {
         ctrl.classesArray = ['CSE 1111', 'CSE 2222', 'CSE 3333'];
+        
+        // Will go through the ctrl.classesArray and pass each string element to ApptModel.getAllAppts(), resulting in a new array populated with these results. 
         const promises = ctrl.classesArray.map(el => ApptModel.getAllAppts(el));
 
+        // The Promise.all method is "useful for aggregating the results of mutliple promises" (Promise.all() - MDN Web Docs).
+        // It is especially useful here so that we don't have to use a loop and risk the program making too many requests at a time. 
+        // Input is the array of promises from line 57. 
+        // Promise will get resolved when ALL promises in array get resolved.
         Promise.all(promises).then((results) => ctrl.allAppointments = results);
-
+        
         console.log("at the end of particularClass");
     }
 
-    // Add a new appointment feature
+    // Function for the Create New Appointment feature. 
+    // Without an actual function calling ApptModel.New(), tutors would only be able to create one single appointment. 
+    // Any other "Create New Appointment" forms submitted would simply be modifications to that one appointment. 
     ctrl.newAppointmentFunction = function () {
         ctrl.newAppointment = ApptModel.New();
     }
@@ -78,6 +86,5 @@ function forTutorsController(ApptModel, AuthService) {
         ctrl.dataObj = dataObj;
     });
 };
-
 
 angular.module('components.tutors').controller('forTutorsController', forTutorsController);

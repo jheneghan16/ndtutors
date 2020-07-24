@@ -29,9 +29,7 @@
 			rgba(255,255,255,1);
 }
 
-
-
-
+/*navigation2 refers to the "Appointments" & "Account Settings" menu shown in the For Tutors Dashboard.*/
 .navigation2 {
 	display: flex;
 	flex-flow: row wrap;
@@ -51,20 +49,11 @@
 			rgba(120,49,158,0);
 }
 
-.navigation2 .currentTab{
-    text-decoration: none;
-	display: block;
-	padding: 1em;
-	color: white;
-	flex-shrink: 4;
-	border: 1px solid
-			rgba(120,49,158,0);
-}
-
 .navigation2 a:hover {
 	background: rgba(120,49,158,1);;
 }
 
+/*This is used for the "View All Appointments" and "Create New Appointment" options seen under the "Appointments" tab.*/
 .subMenu h3:hover {
 	background: rgba(172,172,172,1);
     cursor: pointer;

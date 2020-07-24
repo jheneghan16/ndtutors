@@ -4,6 +4,7 @@
     <h1>Welcome {{ $ctrl.username  }}!</h1>
     <h3><i>Choose one of the following options:</i></h3>
 
+    <!--Main navigation menu in the For Tutors Dashboard-->
     <ul class="navigation2">
         <li><a ng-click="$ctrl.toggleApptsTab(); $ctrl.particularClass(); $ctrl.accountSettingsTab=false" href="#!/app/forTutors">Appointments</a></li>
 
@@ -11,7 +12,7 @@
 
     </ul>
 
-    <!--Account Settings-->
+    <!--"Account Settings" tab - no functionality for this individual feature but it is something we would love to add in the future.-->
     <div ng-if=$ctrl.accountSettingsTab>
         <h3><u><i>Change Username/Email</i></u></h3>
         <h3><u><i>Change Password</i></u></h3>
@@ -19,15 +20,16 @@
     </div>
 
 
-
     <!--In "Appointments" tab...-->
     <div class="subMenu" ng-if="$ctrl.apptsTab">
-        <h3 ng-click="$ctrl.particularClass(); $ctrl.toggleShowViewAllApptsSection();$ctrl.particularClass()"><i><u>View All Appointments</u></i></h3>
+        <!--"View All Appointments" is the first option tutors will see under the "Appointments" tab.-->
+        <h3 ng-click="$ctrl.particularClass(); $ctrl.toggleShowViewAllApptsSection(); $ctrl.particularClass()"><i><u>View All Appointments</u></i></h3>
 
-        <!--<p ng-if="$ctrl.allAppointments && $ctrl.showViewAllApptsSection">{{$ctrl.allAppointments}}</p>-->
+        <!--We need a nested ng-repeat because $ctrl.allAppointments is an array of arrays of JSON objects.-->
         <ul>
             <li ng-if="$ctrl.allAppointments && $ctrl.showViewAllApptsSection" ng-repeat="individualClassArray in $ctrl.allAppointments"> <b>Appointment Information:</b>
 
+                <!--Only the tutoring information in which the tutorEmail matches with the $ctrl.username will be displayed.-->
                 <ul ng-repeat="x in individualClassArray" ng-if="x.tutorEmail == $ctrl.username">{{x.courseName}} Tutoring Session on {{x.apptDate}} at {{x.apptTime}} in {{x.location}}</ul>
 
                 <br />
@@ -35,14 +37,14 @@
             </li>
         </ul>
 
-        <!--Create New Appointment Section-->
+        <!--"Create New Appointment Section" is the second option tutors will see under the "Appointments" tab.-->
         <h3 ng-click="$ctrl.toggleShowNewApptSection(); $ctrl.showNewApptForm = true; $ctrl.particularClass(); $ctrl.newAppointmentFunction(); "><i><u>Create New Appointment</u></i></h3>
 
         <fieldset ng-if="$ctrl.apptsTab && $ctrl.showNewApptSection && $ctrl.showNewApptForm">
 
             <legend><b>New Appointment Information</b></legend>
             <!-- Form for tutors to create a new appointment -->
-            <form ng-submit="$ctrl.newAppointment.isAvail = true; $ctrl.particularClass();$ctrl.updateAppointment($ctrl.newAppointment);  $ctrl.showNewApptForm=false; $ctrl.particularClass()">
+            <form ng-submit="$ctrl.newAppointment.isAvail = true; $ctrl.particularClass(); $ctrl.updateAppointment($ctrl.newAppointment);  $ctrl.showNewApptForm=false; $ctrl.particularClass()">
 
                 <!--In order to store input data for each of the Appt fields, we are going to use ng-model (as used in auth-form.html).-->
                 <label>Your Name:<br />
@@ -75,12 +77,12 @@
 
                 <br />
 
-                <!-- set complete boolean to true -->
                 <input type="submit" name="SendButton" value="Send" />
 
             </form>
         </fieldset>
-
+        
+        <!--After submitting the "Create New Appointment" form, tutors will see the following message as feedback that their form was received and their appointment was created.-->
         <p ng-if="$ctrl.showNewApptSection && !$ctrl.showNewApptForm">Your new appointment has been recorded!</p>
     </div>
 

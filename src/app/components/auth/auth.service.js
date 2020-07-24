@@ -19,7 +19,6 @@ function AuthService(Parse) {
       auth.set("password", user.password);
       auth.set("email", user.email);
       console.log(user);
-      //sessionStorage.setItem('username', user.email);
     return auth
       .logIn()
       .then(storeAuthData);
