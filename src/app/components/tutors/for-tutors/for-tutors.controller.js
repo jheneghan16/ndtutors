@@ -56,7 +56,7 @@ function forTutorsController(ApptModel, AuthService) {
         // Will go through the ctrl.classesArray and pass each string element to ApptModel.getAllAppts(), resulting in a new array populated with these results. 
         const promises = ctrl.classesArray.map(el => ApptModel.getAllAppts(el));
 
-        // The Promise.all method is "useful for aggregating the results of mutliple promises" (Promise.all() - MDN Web Docs).
+        // The Promise.all method is "useful for aggregating the results of multiple promises" (Promise.all() - MDN Web Docs).
         // It is especially useful here so that we don't have to use a loop and risk the program making too many requests at a time. 
         // Input is the array of promises from line 57. 
         // Promise will get resolved when ALL promises in array get resolved.
