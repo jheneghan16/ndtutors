@@ -48,7 +48,7 @@ class ApptModel {
     getAllAppts(courseName) {
         return new this.Parse.Query(this.New())
             .equalTo('courseName', courseName)
-            .descending("createdAt")
+            .descending("courseName")
             .find(results => {
                 results.forEach(result =>
                     this.Parse.defineAttributes(result, this.fields)

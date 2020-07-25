@@ -1,5 +1,20 @@
 # CHANGELOG.md
 
+## 0.4.0 
+
+Contributors:
+
+  - Justin Doney
+
+Features:
+  - Reworked Navigation into for students (instead of individual classes) and for tutors.
+  - Added support for multiple courses in the for students section.
+  - Added UI color-coding to appts based on availability: unavailable appts are red, available appts are green.
+
+Bug Fixes: 
+
+ - No known bugs in prior release.
+ 
 ## 0.3.0 
 
 Contributors:
